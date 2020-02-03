@@ -1,0 +1,34 @@
+﻿
+
+
+    @*  @model EmployeeManagement.Model.Employee;   *@
+
+
+
+@model EmployeeManagement.Model.EmployeeProjectViewModel;
+@*@{
+    Layout = null;
+}*@
+
+
+
+
+    <table border="1" cellpadding="10" cellspacing="3">
+        <tr>
+            <td>    ID              </td>
+            <td>    Name            </td>
+            <td>    Email           </td>
+            <td>    Dept            </td>
+            <td>    ProjectName     </td>
+        </tr>
+        <tr>
+            <td>    @Model.employee.Id        </td>
+            <td>    @Model.employee.Name      </td>
+            <td>    @Model.employee.Email     </td>
+            <td>    @Model.employee.Dept      </td>
+            <td>    @Model.projectName        </td>
+
+
+        </tr>
+    </table>
+

@@ -1,0 +1,85 @@
+﻿@*@{
+        Layout = null;
+    }*@
+
+
+@* For Strongly Typed *@
+
+@*@model EmployeeManagement.Model.Employee*@
+@* @{
+        Layout = null;
+    }*@
+
+
+@*@model EmployeeManagement.Model.Employee*@
+
+
+
+    @{var emp1 = @ViewData["employee"] as EmployeeManagement.Model.Employee;}
+
+
+
+    <h1>Employee</h1>
+    <table border="1" cellpadding="10" cellspacing="3">
+        <tr>
+            <td>    ID       </td>
+            <td>    Name     </td>
+            <td>    Email    </td>
+            <td>    Dept     </td>
+        </tr>
+
+        @*Normal Printing*@
+
+        @*<tr>
+                <td>    @emp1.Id       </td>
+                <td>    @emp1.Name     </td>
+                <td>    @emp1.Email    </td>
+                <td>    @emp1.Dept     </td>
+            </tr>*@
+
+
+
+        @*By Using Racer Engine*@
+        <tr>
+            @* ******************************************** *@
+
+            @* Model 1: View Data  *@
+
+            @*  <td>    @ViewData["id"]     </td>
+                <td>    @ViewData["Name"]   </td>
+                <td>    @ViewData["Email"]  </td>
+                <td>    @ViewData["Dept"]   </td>*@
+
+
+
+            @* ******************************************** *@
+
+            @* Model 2: View Bag  *@
+
+            @*  <td>    @ViewBag.id     </td>
+                <td>    @ViewBag.name   </td>
+                <td>    @ViewBag.email  </td>
+                <td>    @ViewBag.dept   </td>*@
+
+
+            @* Model 2.1: View Bag  *@
+
+            @*<td>    @ViewBag.employee.Id     </td>
+                <td>    @ViewBag.employee.Name   </td>
+                <td>    @ViewBag.employee.Email  </td>
+                <td>    @ViewBag.employee.Dept   </td>*@
+
+
+
+            @* ******************************************** *@
+
+            @* Model 3: Strongly Typed  *@
+
+
+            <td>    @Model.Id     </td>
+            <td>    @Model.Name   </td>
+            <td>    @Model.Email  </td>
+            <td>    @Model.Dept   </td>
+
+        </tr>
+    </table>

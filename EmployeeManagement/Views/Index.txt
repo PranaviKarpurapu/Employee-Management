@@ -1,0 +1,44 @@
+﻿@*@model IEnumerable<EmployeeManagement.Model.Employee>*@
+
+@* **********************Absolute Layout**************************** *@
+@*@{
+        Layout ="~/Views/sharedd/_Layout.cshtml";
+    }*@
+
+@* **********************ViewImport**************************** *@
+
+@* For ViewImport we should only specify classname *@
+
+@model IEnumerable<Employee>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h3>Employee Details</h3>
+    <table border="1" cellpadding="10">
+        <tr>
+            <td>    ID       </td>
+            <td>    Name     </td>
+            <td>    Email    </td>
+            <td>    Dept     </td>
+        </tr>
+
+
+        @foreach (var em in Model)
+        {
+            <tr>
+                <td>    @em.Id       </td>
+                <td>    @em.Name     </td>
+                <td>    @em.Email    </td>
+                <td>    @em.Dept     </td>
+            </tr>
+        }
+    </table>
+</body>
+</html>

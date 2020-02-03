@@ -1,0 +1,35 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Register";
+}
+@* ********************************************************************** *@
+
+               @* Example of TAG Helpers  *@
+<h1>Register</h1>
+<form asp-controller="Employee" asp-action="Register" method="post">
+    <div>
+        <label asp-for="Id">ID</label>
+        <input asp-for="Id" required/>
+    </div>
+
+    <div>
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" required />
+    </div>
+
+    <div>
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email" type="email"/>
+    </div>
+
+    <div>
+        <label asp-for="Dept">Dept</label>
+        <input asp-for="Dept" />
+    </div>
+
+    <div>
+        <input type="submit" value="Register"/>
+    </div>
+
+</form>
+

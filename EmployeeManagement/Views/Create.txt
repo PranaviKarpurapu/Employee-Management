@@ -1,0 +1,91 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+@*@using (Html.BeginForm())     //Creates a Form(HTML Helpers)
+{*@
+
+@*********************************************************************************************@
+
+@*Model 1 : Standard Controls  *@
+
+@*Name @Html.TextBox("TextBox1", "Enter Name")
+    <br />
+    Address @Html.TextArea("textarea1", "Address")
+    <br />
+    Password @Html.Password("password1", "Password")
+    <br />
+    Program @Html.ListBox("listbox1", new MultiSelectList(new[] { "ASP", "ASP.Net Core" }))*@
+
+@*********************************************************************************************@
+
+@*Model 2 : Used to Mapping to properties,objects  *@
+
+@*@Html.Label("Name")
+    @Html.TextBoxFor(m => m.Name, "Enter Name")
+    <br />
+    @Html.LabelFor(m => m.Email)
+
+    @Html.PasswordFor(m => m.Id)
+    <br />
+    Address @Html.TextAreaFor(m => m.Dept)*@
+
+
+@*********************************************************************************************@
+
+@*Model 3 : Automatically takes properties and objects  *@
+
+
+@*@Html.Display("Id")
+<br />
+@Html.DisplayFor(m => m.Id)
+<br />
+@Html.Display("Name")
+<br />
+@Html.DisplayFor(m => m.Name)
+<br />
+@Html.Display("Email")
+<br />
+@Html.DisplayFor(m => m.Email)
+<br />
+@Html.Display("Dept")
+<br />
+@Html.DisplayFor(m => m.Dept)
+<br />
+@Html.EditorFor(m => m.Dept)
+<br />
+<input class=" btn btn-primary" type="submit" value="Submit" action="Employee/Create/1" />
+}*@
+
+
+<form asp-controller="Employee" asp-action="Create" method="post">
+
+    @********************************************************************************  *@
+
+    @* Example of TAG Helpers *@
+    <div class="form-row">
+        <label asp-for="Name" class="col-form-label">Name</label>
+        <input asp-for="Name" class="col-lg-6"  />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-row">
+        <label asp-for="Email" class="col-form-label">Email</label>
+        <input asp-for="Email" class="col-lg-6" type="email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="form-row">
+        <label asp-for="Dept" class="col-form-label">Dept</label>
+        <select asp-for="Dept" class="col-lg-6" asp-items="Html.GetEnumSelectList<Dept>()"></select>
+    </div>
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <div>
+        <input type="submit" value="Create Employee" />
+        
+    </div>
+</form>
